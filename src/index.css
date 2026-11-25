@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-handwriting: 'STKaiti', 'KaiTi', '楷体', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+    --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+    --bg-cream: #fff7f8;
+    --ink-main: #3d313f;
+    --ink-muted: #7c6f7e;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: var(--font-sans);
+    color: var(--ink-main);
+    background: linear-gradient(155deg, #fff5f7 0%, #f3ecfa 48%, #e6f0f8 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-hand {
+  font-family: var(--font-handwriting);
+}
+
+/* 手账纸张纹理 */
+.journal-paper {
+  background-color: #fffcfd;
+  background-image:
+    radial-gradient(rgba(229, 179, 198, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 232, 242, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px, 100% 28px;
+}
+
+/* 拍立得相纸阴影 */
+.polaroid-shadow {
+  box-shadow:
+    0 14px 36px -10px rgba(126, 94, 134, 0.2),
+    0 4px 12px -2px rgba(214, 152, 178, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+/* 和纸胶带效果 */
+.washi-tape {
+  background: linear-gradient(
+    135deg,
+    rgba(247, 198, 214, 0.72) 0%,
+    rgba(223, 206, 245, 0.72) 100%
+  );
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(120, 90, 120, 0.12);
+}
+
+.washi-tape-blue {
+  background: linear-gradient(
+    135deg,
+    rgba(196, 221, 242, 0.78) 0%,
+    rgba(225, 214, 246, 0.72) 100%
+  );
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(100, 120, 150, 0.12);
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes pulseHeart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  18% {
+    transform: scale(1.16);
+  }
+  32% {
+    transform: scale(0.98);
+  }
+  48% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes ecgDraw {
+  0% {
+    stroke-dashoffset: 520;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulseHeart 1.3s ease-in-out infinite;
+}
+
+.animate-ecg {
+  stroke-dasharray: 520;
+  animation: ecgDraw 1.8s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
